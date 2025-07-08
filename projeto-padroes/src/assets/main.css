@@ -1,2 +1,6 @@
-/* @import './base.css'; */
+@import './base.css';
 @import './reset.css';
+
+.negrito {
+  font-weight: bold;
+}
