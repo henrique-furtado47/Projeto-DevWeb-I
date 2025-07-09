@@ -6,56 +6,21 @@ export default {
       dif_atual: 1,
     }
   },
-  methods: {},
-  watch: {
-    dif_atual(newValue) {
+  methods: {
+    getDificuldade() {
       const dificuldadeStore = useDificuldadeStore()
-      dificuldadeStore.dificuldade = newValue
-      console.log('Dificuldade atualizada:', newValue)
+      this.dif_atual = dificuldadeStore.dificuldade
     },
   },
+  watch: {},
   mounted() {
-    const dificuldadeStore = useDificuldadeStore()
-    this.dif_atual = dificuldadeStore.dificuldade
+    this.getDificuldade()
   },
 }
 </script>
 <template>
   <div class="centro">
-    <div class="title">
-      <h1>Seja bem-vindo a <span class="negrito">Ache o Padrão</span></h1>
-      <h2>Selecione a dificuldade e depois o padrão:</h2>
-    </div>
-    <div class="selecao">
-      <ul class="dificuldade">
-        <li>
-          <input selected type="radio" id="facil" name="dif" v-model="dif_atual" value="1" />
-          <label for="facil"><h3>Fácil</h3></label>
-        </li>
-        <li>
-          <input type="radio" id="medio" v-model="dif_atual" name="dif" value="2" />
-          <label for="medio"><h3>Médio</h3></label>
-        </li>
-        <li>
-          <input type="radio" id="dificil" v-model="dif_atual" name="dif" value="3" />
-          <label for="dificil"><h3>Difícil</h3></label>
-        </li>
-      </ul>
-      <ul>
-        <li>
-          <button @click="$router.push('numeros')">Números</button>
-        </li>
-        <li>
-          <button @click="$router.push('letras')">Letras</button>
-        </li>
-        <li>
-          <button @click="$router.push('formas')">Formas</button>
-        </li>
-        <li>
-          <button @click="$router.push('cores')">Cores</button>
-        </li>
-      </ul>
-    </div>
+    <p>{{ dif_atual }}</p>
   </div>
 </template>
 <style scoped>
