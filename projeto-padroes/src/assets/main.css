@@ -4,3 +4,15 @@
 .negrito {
   font-weight: bold;
 }
+
+button {
+  width: 150px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #005586;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}

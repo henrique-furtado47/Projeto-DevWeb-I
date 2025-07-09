@@ -52,7 +52,7 @@ export default {
           <button @click="$router.push('formas')">Formas</button>
         </li>
         <li>
-          <button @click="$router.push('cores')">Cores</button>
+          <button @click="$router.push('vitoria')">Cores</button>
         </li>
       </ul>
     </div>
@@ -118,17 +118,6 @@ li h3 {
   font-size: 1.5rem;
   color: #005586;
   margin: 10px 0;
-}
-button {
-  width: 150px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  background-color: #005586;
-  color: white;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: background-color 0.3s;
 }
 button:hover {
   background-color: #003f5c;
