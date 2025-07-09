@@ -5,6 +5,10 @@ div.padrao {
   margin-top: 15px;
 }
 
+.info {
+    margin-bottom: 3%;
+}
+
 .info p {
   margin: 15px 0;
 }
