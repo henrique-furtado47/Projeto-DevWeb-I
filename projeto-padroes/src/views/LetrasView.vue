@@ -20,7 +20,6 @@ export default {
     },
 
     gerarPadrao() {
-      this.feedback = ''
       this.userAnswer = ''
 
       const padroes = {
@@ -127,7 +126,7 @@ export default {
         if (this.acertos >= 5) {
           this.$router.push('/vitoria')
         } else {
-          setTimeout(() => this.gerarPadrao(), 1000)
+          this.gerarPadrao()
         }
       } else {
         this.feedback = `❌ Errado. Era ${this.resposta}`
@@ -136,7 +135,7 @@ export default {
           alert('😢 Fim de jogo!')
           this.$router.push('/derrota')
         } else {
-          setTimeout(() => this.gerarPadrao(), 1000)
+          this.gerarPadrao()
         }
       }
     },
@@ -170,6 +169,7 @@ export default {
         v-model="userAnswer"
         placeholder="Próxima letra?"
         class="input"
+        @keyup.enter="verificarResposta"
       />
       <button @click="verificarResposta">Verificar</button>
 

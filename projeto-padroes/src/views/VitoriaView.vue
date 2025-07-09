@@ -8,12 +8,13 @@
     <button @click="$router.push('/')">Voltar ao Início</button>
   </div>
 </template>
-<style>
+<style scoped>
 .centro {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 5%;
   min-height: 100vh;
+  gap: 20px;
 }
 </style>

@@ -20,7 +20,6 @@ export default {
     },
 
     gerarPadrao() {
-      this.feedback = ''
       this.userAnswer = ''
 
       const padroes = {
@@ -111,16 +110,15 @@ export default {
         if (this.acertos >= 5) {
           this.$router.push('/vitoria')
         } else {
-          setTimeout(() => this.gerarPadrao(), 1000)
+          this.gerarPadrao()
         }
       } else {
         this.feedback = `❌ Errado. Era ${this.resposta}`
         this.vidas--
         if (this.vidas <= 0) {
-          alert('😢 Fim de jogo!')
           this.$router.push('/derrota')
         } else {
-          setTimeout(() => this.gerarPadrao(), 1000)
+          this.gerarPadrao()
         }
       }
     },
@@ -148,7 +146,13 @@ export default {
         <div v-for="(n, i) in padrao" :key="i" class="caixa">{{ n }}</div>
       </div>
 
-      <input type="number" v-model="userAnswer" placeholder="Próximo número?" class="input" />
+      <input
+        type="number"
+        v-model="userAnswer"
+        placeholder="Próximo número?"
+        class="input"
+        @keyup.enter="verificarResposta"
+      />
       <button @click="verificarResposta">Verificar</button>
 
       <p v-if="feedback" style="margin-top: 1rem">{{ feedback }}</p>

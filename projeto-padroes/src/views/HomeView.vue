@@ -119,7 +119,4 @@ li h3 {
   color: #005586;
   margin: 10px 0;
 }
-button:hover {
-  background-color: #003f5c;
-}
 </style>

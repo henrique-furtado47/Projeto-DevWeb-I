@@ -1,13 +1,29 @@
 <template>
-  <h1>Esse é o about</h1>
+  <div class="centro">
+    <h1>
+      Trabalho feito por <a href="https://github.com/paulok3tchup">Paulo Cesar</a> e
+      <a href="https://github.com/henrique-furtado47">Henrique Furtado</a>
+    </h1>
+    <img src="https://i.redd.it/kap731650yaf1.gif" alt="Tenna" />
+    <button @click="$router.push('/')">Voltar ao Início</button>
+  </div>
 </template>
+<style scoped>
+.centro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5%;
+  min-height: 100vh;
+  gap: 20px;
+}
+a {
+  text-decoration: none;
+  color: #005586;
+}
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+a:hover {
+  text-decoration: underline;
+  color: #01314d;
 }
 </style>
