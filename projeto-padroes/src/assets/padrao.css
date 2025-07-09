@@ -1,0 +1,55 @@
+div.padrao {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+  margin-top: 15px;
+}
+
+.info p {
+  margin: 15px 0;
+}
+
+.centro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5%;
+  min-height: 100vh;
+}
+.caixa {
+  width: 50px;
+  height: 50px;
+  background: #b3d9ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 8px;
+}
+.input {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 1rem;
+  width: 150px;
+  text-align: center;
+}
+button {
+  margin: 10px 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+  background-color: #005586;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: #00416d;
+}
+
+.vermelho {
+  color: red;
+}
+.verde {
+  color: green;
+}

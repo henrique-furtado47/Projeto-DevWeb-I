@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5%;
-  min-height: 36vw;
+  padding-top: 5%;
+  min-height: 100vh;
 }
 </style>

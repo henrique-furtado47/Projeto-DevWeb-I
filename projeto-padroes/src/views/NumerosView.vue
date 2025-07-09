@@ -134,13 +134,17 @@ export default {
 
 <template>
   <div class="centro">
-    <p>Dificuldade: {{ dif_atual }}</p>
-    <p>Vidas: ❤️ x{{ vidas }}</p>
-    <p>Acertos: ✅ x{{ acertos }}</p>
+    <div class="info">
+      <p v-if="dif_atual == 1">Dificuldade: Fácil</p>
+      <p v-if="dif_atual == 2">Dificuldade: Médio</p>
+      <p v-if="dif_atual == 3">Dificuldade: Difícil</p>
+      <p>Vidas: <span class="fa-solid fa-heart vermelho"></span> x{{ vidas }}</p>
+      <p>Acertos: <span class="fa-solid fa-check verde"></span> x{{ acertos }}</p>
+    </div>
 
     <div v-if="padrao.length">
       <h2>Padrão:</h2>
-      <div style="display: flex; gap: 10px; margin-bottom: 1rem">
+      <div class="padrao">
         <div v-for="(n, i) in padrao" :key="i" class="caixa">{{ n }}</div>
       </div>
 
@@ -153,40 +157,5 @@ export default {
 </template>
 
 <style scoped>
-.centro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 5%;
-}
-.caixa {
-  width: 50px;
-  height: 50px;
-  background: #b3d9ff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  border-radius: 8px;
-}
-.input {
-  margin-top: 10px;
-  padding: 10px;
-  font-size: 1rem;
-  width: 150px;
-  text-align: center;
-}
-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-weight: bold;
-  background-color: #005586;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-button:hover {
-  background-color: #00416d;
-}
+@import '../assets/padrao.css';
 </style>

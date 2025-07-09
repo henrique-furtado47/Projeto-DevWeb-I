@@ -21,7 +21,7 @@ export default {
 }
 </script>
 <template>
-  <div class="centro">
+  <div class="principal">
     <div class="title">
       <h1>Seja bem-vindo a <span class="negrito">Ache o Padrão</span></h1>
       <h2>Selecione a dificuldade e depois o padrão:</h2>
@@ -86,7 +86,7 @@ ul.dificuldade {
   align-items: center;
   gap: 10px;
 }
-.centro {
+.principal {
   margin: 5% 0 0 0;
   justify-content: center;
   min-height: 100vh;

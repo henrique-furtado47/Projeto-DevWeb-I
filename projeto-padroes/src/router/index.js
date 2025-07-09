@@ -29,6 +29,11 @@ const router = createRouter({
       name: 'numeros',
       component: () => import('../views/NumerosView.vue'),
     },
+    {
+      path: '/letras',
+      name: 'letras',
+      component: () => import('../views/LetrasView.vue'),
+    },
   ],
 })
 
