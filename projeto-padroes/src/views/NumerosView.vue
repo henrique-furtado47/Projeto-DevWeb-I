@@ -1,5 +1,6 @@
 <script>
 import { useDificuldadeStore } from '@/stores/dificuldade'
+import { tocarSom } from '@/utils/audio'
 
 export default {
   data() {
@@ -102,20 +103,24 @@ export default {
       return Math.floor(Math.random() * (max - min + 1)) + min
     },
 
-    verificarResposta() {
-      const user = parseInt(this.userAnswer)
-      if (user === this.resposta) {
-        this.feedback = '✅ Correto!'
+    verificarResposta(userChoice) {
+      if (userChoice === this.resposta) {
+        this.feedback =
+          '<span class="fa-solid fa-check verde" style="color: green;"></span> Correto!'
+        tocarSom('acerto')
         this.acertos++
         if (this.acertos >= 5) {
+          tocarSom('vitoria')
           this.$router.push('/vitoria')
         } else {
           this.gerarPadrao()
         }
       } else {
-        this.feedback = `❌ Errado. Era ${this.resposta}`
+        tocarSom('erro')
+        this.feedback = `<span style="color: red;" class="fa-solid fa-xmark vermelho"></span> Errado. Era ${this.resposta}`
         this.vidas--
         if (this.vidas <= 0) {
+          tocarSom('derrota')
           this.$router.push('/derrota')
         } else {
           this.gerarPadrao()
@@ -155,7 +160,7 @@ export default {
       />
       <button @click="verificarResposta">Verificar</button>
 
-      <p v-if="feedback" style="margin-top: 1rem">{{ feedback }}</p>
+      <p class="feed" v-html="feedback"></p>
     </div>
   </div>
 </template>

@@ -52,7 +52,7 @@ export default {
           <button @click="$router.push('formas')">Formas</button>
         </li>
         <li>
-          <button @click="$router.push('vitoria')">Cores</button>
+          <button @click="$router.push('cores')">Cores</button>
         </li>
       </ul>
     </div>

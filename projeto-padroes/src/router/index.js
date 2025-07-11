@@ -34,6 +34,21 @@ const router = createRouter({
       name: 'letras',
       component: () => import('../views/LetrasView.vue'),
     },
+    {
+      path: '/formas',
+      name: 'formas',
+      component: () => import('../views/FormasView.vue'),
+    },
+    {
+      path: '/cores',
+      name: 'cores',
+      component: () => import('../views/CoresView.vue'),
+    },
+    {
+      path: '/tutorial',
+      name: 'tutorial',
+      component: () => import('../views/TutorialView.vue'),
+    },
   ],
 })
 

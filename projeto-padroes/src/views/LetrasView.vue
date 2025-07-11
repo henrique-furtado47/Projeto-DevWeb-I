@@ -1,6 +1,6 @@
 <script>
 import { useDificuldadeStore } from '@/stores/dificuldade'
-
+import { tocarSom } from '@/utils/audio'
 export default {
   data() {
     return {
@@ -35,7 +35,7 @@ export default {
 
     // Padrões FÁCEIS
     padraoLetrasCrescente() {
-      const start = this.random(65, 87) // A até W
+      const start = this.random(65, 87)
       this.padrao = [
         this.codigoParaLetra(start),
         this.codigoParaLetra(start + 1),
@@ -51,9 +51,8 @@ export default {
       this.resposta = letra
     },
 
-    // Padrões MÉDIOS
     padraoLetrasPulando() {
-      const start = this.random(65, 81) // A até Q
+      const start = this.random(65, 81)
       this.padrao = [
         this.codigoParaLetra(start),
         this.codigoParaLetra(start + 2),
@@ -64,7 +63,7 @@ export default {
     },
 
     padraoLetrasAlternadas() {
-      const a = this.codigoParaLetra(this.random(65, 85)) // A até U
+      const a = this.codigoParaLetra(this.random(65, 85))
       const b = this.codigoParaLetra(this.random(65, 85))
       this.padrao = [a, b, a, b]
       this.resposta = a
@@ -77,9 +76,8 @@ export default {
       this.resposta = b
     },
 
-    // Padrões DIFÍCEIS
     padraoLetrasDecrescente() {
-      const start = this.random(68, 90) // D até Z
+      const start = this.random(68, 90)
       this.padrao = [
         this.codigoParaLetra(start),
         this.codigoParaLetra(start - 1),
@@ -121,18 +119,22 @@ export default {
       const esperado = this.resposta.toString().toUpperCase()
 
       if (user === esperado) {
-        this.feedback = '✅ Correto!'
+        tocarSom('acerto')
+        this.feedback =
+          '<span class="fa-solid fa-check verde" style="color: green;"></span> Correto!'
         this.acertos++
         if (this.acertos >= 5) {
+          tocarSom('vitoria')
           this.$router.push('/vitoria')
         } else {
           this.gerarPadrao()
         }
       } else {
-        this.feedback = `❌ Errado. Era ${this.resposta}`
+        tocarSom('erro')
+        this.feedback = `<span class="fa-solid fa-xmark" style="color: red;"></span> Errado. Era ${this.resposta}`
         this.vidas--
         if (this.vidas <= 0) {
-          alert('😢 Fim de jogo!')
+          tocarSom('derrota')
           this.$router.push('/derrota')
         } else {
           this.gerarPadrao()
@@ -173,7 +175,7 @@ export default {
       />
       <button @click="verificarResposta">Verificar</button>
 
-      <p v-if="feedback" style="margin-top: 1rem">{{ feedback }}</p>
+      <p class="feed" v-html="feedback"></p>
     </div>
   </div>
 </template>

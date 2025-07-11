@@ -1,5 +1,15 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import { ref } from 'vue'
+import { tocarMusicaFundo, pararMusicaFundo } from '@/utils/audio'
+
+const mutado = ref(false)
+
+const toggleMute = () => {
+  mutado.value = !mutado.value
+  mutado.value ? pararMusicaFundo() : tocarMusicaFundo()
+}
+
 </script>
 <template>
   <header>
@@ -7,10 +17,18 @@ import { RouterLink } from 'vue-router'
       <nav>
         <div class="esq">
           <RouterLink to="/"><span class="fa-solid fa-brain"></span>Ache o Padrão</RouterLink>
+          <button
+            class="mute-btn"
+            @click="toggleMute"
+            :title="mutado ? 'Som desligado' : 'Som ligado'"
+          >
+            <span v-if="mutado" class="fa-solid fa-volume-xmark"></span>
+            <span v-else class="fa-solid fa-volume-high"></span>
+          </button>
         </div>
         <div class="dir">
-          <RouterLink to="/">Home</RouterLink>
-          <RouterLink to="/about">Sobre</RouterLink>
+          <RouterLink to="/about">Créditos</RouterLink>
+          <RouterLink to="/tutorial">Como jogar</RouterLink>
         </div>
       </nav>
     </div>
@@ -46,4 +64,6 @@ a:hover {
   text-decoration: underline;
   font-weight: bold;
 }
+
+
 </style>
