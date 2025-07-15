@@ -156,9 +156,9 @@ export default {
         v-model="userAnswer"
         placeholder="Próximo número?"
         class="input"
-        @keyup.enter="verificarResposta"
+        @keyup.enter="verificarResposta(Number(userAnswer))"
       />
-      <button @click="verificarResposta">Verificar</button>
+      <button @click="verificarResposta(Number(userAnswer))">Verificar</button>
 
       <p class="feed" v-html="feedback"></p>
     </div>
