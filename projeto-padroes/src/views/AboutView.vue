@@ -26,4 +26,11 @@ a:hover {
   text-decoration: underline;
   color: #01314d;
 }
+
+@media (max-width: 600px) {
+  .centro {
+    padding: 20px;
+    text-align: center;
+  }
+}
 </style>

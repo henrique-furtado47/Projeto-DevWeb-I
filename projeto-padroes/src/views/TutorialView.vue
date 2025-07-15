@@ -33,4 +33,15 @@ h1 {
   width: 60%;
   line-height: 130%;
 }
+
+@media (max-width: 600px) {
+  .centro {
+    padding: 20px;
+    text-align: center;
+  }
+  h1 {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
 </style>

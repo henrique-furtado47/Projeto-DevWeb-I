@@ -3,7 +3,7 @@
   <footer>
     <div class="wrapper">
       <nav>
-        <p>Esse é o footer</p>
+        <p>&copy;Paulo & Henrique</p>
       </nav>
     </div>
   </footer>

@@ -9,7 +9,6 @@ const toggleMute = () => {
   mutado.value = !mutado.value
   mutado.value ? pararMusicaFundo() : tocarMusicaFundo()
 }
-
 </script>
 <template>
   <header>
@@ -65,5 +64,23 @@ a:hover {
   font-weight: bold;
 }
 
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
+  div.dir {
+    margin-top: 10px;
+  }
+
+  div.esq {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .mute-btn {
+    width: 30px;
+  }
+}
 </style>

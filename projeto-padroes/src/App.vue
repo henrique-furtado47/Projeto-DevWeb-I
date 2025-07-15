@@ -14,7 +14,7 @@ export default {
         tocarMusicaFundo()
       },
       { once: true },
-    ) // só toca uma vez após 1 clique
+    )
   },
 }
 </script>

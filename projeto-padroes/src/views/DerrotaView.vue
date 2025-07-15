@@ -17,4 +17,9 @@
   min-height: 36vw;
   gap: 20px;
 }
+@media (max-width: 600px) {
+  .centro {
+    padding: 10%;
+  }
+}
 </style>

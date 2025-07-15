@@ -119,4 +119,43 @@ li h3 {
   color: #005586;
   margin: 10px 0;
 }
+@media (max-width: 600px) {
+  .selecao {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .selecao li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .title h1 {
+    font-size: 1.5rem;
+    margin: 20px 0;
+  }
+
+  .title h2 {
+    font-size: 1rem;
+    margin: 20px 0;
+  }
+
+  ul {
+    gap: 15px;
+    margin: 10% 0;
+  }
+
+  li h3 {
+    font-size: 1.2rem;
+  }
+
+  .principal {
+    padding: 0 5%;
+  }
+  ul.dificuldade li {
+    justify-content: center;
+    width: 100%;
+  }
+}
 </style>
