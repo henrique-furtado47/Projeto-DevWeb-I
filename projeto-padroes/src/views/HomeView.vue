@@ -1,12 +1,12 @@
 <script>
 import { useDificuldadeStore } from '@/stores/dificuldade'
+
 export default {
   data() {
     return {
       dif_atual: 1,
     }
   },
-  methods: {},
   watch: {
     dif_atual(newValue) {
       const dificuldadeStore = useDificuldadeStore()
@@ -20,6 +20,7 @@ export default {
   },
 }
 </script>
+
 <template>
   <div class="principal">
     <div class="title">
@@ -29,18 +30,19 @@ export default {
     <div class="selecao">
       <ul class="dificuldade">
         <li>
-          <input selected type="radio" id="facil" name="dif" v-model="dif_atual" value="1" />
-          <label for="facil"><h3>Fácil</h3></label>
+          <input type="radio" id="facil" name="dif" v-model="dif_atual" value="1" />
+          <label for="facil">Fácil</label>
         </li>
         <li>
-          <input type="radio" id="medio" v-model="dif_atual" name="dif" value="2" />
-          <label for="medio"><h3>Médio</h3></label>
+          <input type="radio" id="medio" name="dif" v-model="dif_atual" value="2" />
+          <label for="medio">Médio</label>
         </li>
         <li>
-          <input type="radio" id="dificil" v-model="dif_atual" name="dif" value="3" />
-          <label for="dificil"><h3>Difícil</h3></label>
+          <input type="radio" id="dificil" name="dif" v-model="dif_atual" value="3" />
+          <label for="dificil">Difícil</label>
         </li>
       </ul>
+
       <ul>
         <li>
           <button @click="$router.push('numeros')">Números</button>
@@ -58,34 +60,8 @@ export default {
     </div>
   </div>
 </template>
-<style scoped>
-ul.dificuldade {
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  margin: 5% 0;
-}
 
-.selecao {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  margin-top: 20px;
-}
-.negrito {
-  font-weight: bold;
-  color: #005586;
-}
-.selecao li {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-}
+<style scoped>
 .principal {
   margin: 5% 0 0 0;
   justify-content: center;
@@ -103,6 +79,20 @@ ul.dificuldade {
   color: #333;
   margin: 20px 0;
 }
+.negrito {
+  font-weight: bold;
+  color: #005586;
+}
+
+.selecao {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  margin-top: 20px;
+}
+
 ul {
   display: flex;
   flex-direction: column;
@@ -110,25 +100,52 @@ ul {
   gap: 20px;
   margin: 5% 0;
 }
+
+ul.dificuldade {
+  align-items: flex-start;
+}
+
+ul.dificuldade li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  color: #005586;
+  list-style: none;
+}
+
+ul.dificuldade input[type="radio"] {
+  transform: scale(1.3);
+  accent-color: #005586;
+  cursor: pointer;
+}
+
+ul.dificuldade label {
+  cursor: pointer;
+}
+
 li {
   list-style: none;
 }
 
-li h3 {
-  font-size: 1.5rem;
-  color: #005586;
-  margin: 10px 0;
+button {
+  background-color: #005586;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
 }
+button:hover {
+  background-color: #00466e;
+}
+
 @media (max-width: 600px) {
   .selecao {
     flex-direction: column;
     gap: 20px;
-  }
-
-  .selecao li {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
   }
 
   .title h1 {
@@ -146,16 +163,13 @@ li h3 {
     margin: 10% 0;
   }
 
-  li h3 {
-    font-size: 1.2rem;
+  ul.dificuldade li {
+    width: 100%;
+    justify-content: flex-start;
   }
 
   .principal {
     padding: 0 5%;
-  }
-  ul.dificuldade li {
-    justify-content: center;
-    width: 100%;
   }
 }
 </style>
