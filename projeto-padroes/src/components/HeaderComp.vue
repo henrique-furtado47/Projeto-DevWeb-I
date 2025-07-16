@@ -1,12 +1,13 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import { ref } from 'vue'
-import { tocarMusicaFundo, pararMusicaFundo } from '@/utils/audio'
+import { tocarMusicaFundo, pararMusicaFundo, setMute } from '@/utils/audio'
 
 const mutado = ref(false)
 
 const toggleMute = () => {
   mutado.value = !mutado.value
+  setMute(mutado.value);
   mutado.value ? pararMusicaFundo() : tocarMusicaFundo()
 }
 </script>
