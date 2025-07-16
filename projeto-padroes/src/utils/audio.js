@@ -30,11 +30,12 @@ fundo.volume = 0.5
 
 export function tocarMusicaFundo() {
   if (isMuted) return
+  fundo.muted = false
   fundo.play().catch((e) => console.warn('Erro ao tocar fundo:', e))
 }
 
 export function pararMusicaFundo() {
   fundo.pause()
   fundo.currentTime = 0
-  fundo.volume = 0
+  fundo.muted = true
 }
